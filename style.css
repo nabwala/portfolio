@@ -90,6 +90,7 @@ header nav button:hover {
   background:#a63b72;
 }
 
+
 /* ----------------------
    💫 Hero Section
 ------------------------ */
@@ -134,6 +135,14 @@ header nav button:hover {
 
 .hero button:hover {
   background-color: #a00050;
+}
+
+.typewriter-text {
+  font-family: playfair display, serif ;
+  white-space: pre-line ;
+  overflow: hidden;
+  font-size: 1.8rem;
+  color: #fff; /* or whatever fits your theme */
 }
 
 
@@ -243,6 +252,42 @@ section:nth-of-type(2) button {
 section:nth-of-type(2) button:hover {
   background-color:#a63b72;
 }
+
+/* ----------------------
+   🖼 Projects Grid
+------------------------ */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.project-grid .project {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.project-grid .project:hover {
+  transform: translateY(-5px);
+}
+
+.project-grid img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+
+
+
 
 /* ----------------------
    🎠 Carousel Section

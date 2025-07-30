@@ -1,3 +1,4 @@
+//Carousel auto-scroll script
 document.addEventListener('DOMContentLoaded', () => {
   const carousel = document.querySelector('.carousel');
   const scrollAmount = 400; // pixels per scroll
@@ -15,3 +16,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // Start auto-scrolling every few seconds
   setInterval(autoScroll, scrollDelay);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const text = "And those who were seen dancing \nwere thought to be insane \nby those who could not hear the music";
+  const element = document.querySelector(".typewriter-text");
+
+  let i = 0;
+
+  //hero typewriter effect
+  function typeWriter() {
+    if (i < text.length) {
+      if (text[i] === '\n') {
+        element.innerHTML += "<br>";
+      } else {
+        element.innerHTML += text[i];
+      }
+      i++;
+      setTimeout(typeWriter, 60); // adjust speed here
+    }
+  }
+
+  typeWriter(); // just call it here once, no need for a second DOMContentLoaded
+});
+
+
