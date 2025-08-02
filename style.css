@@ -303,7 +303,16 @@ section:nth-of-type(2) button:hover {
 }
 
 
-
+.disclaimer {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+  margin-top: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+}
 
 /* ----------------------
    🎠 Carousel Section
