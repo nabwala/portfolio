@@ -39,4 +39,16 @@ document.addEventListener("DOMContentLoaded", function () {
   typeWriter(); // just call it here once, no need for a second DOMContentLoaded
 });
 
+// Smooth scroll for anchor links
+document.addEventListener("DOMContentLoaded", function () {
+  const exploreBtn = document.getElementById("cta-button");
 
+  if (exploreBtn) {
+    exploreBtn.addEventListener("click", function () {
+      const target = document.querySelector(".projects");
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
+});
