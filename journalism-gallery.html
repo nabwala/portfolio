@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Lora:400,700|Lobster+Two:400,700|Cormorant+Garamond:400,700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/LN2.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Editors | Lora Nabwala</title>
+
+  <style>
+    /* Base styles matching your existing design */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fefeff;
+      color: #222;
+      line-height: 1.6;
+      padding: 2rem;
+      scroll-behavior: smooth;
+    }
+
+    /* Header matching your design */
+    header {
+      position: sticky;
+      margin-top: 0;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      background: #fff;
+    }
+
+    .header-title {
+      display: flex;
+      font-family: playfair display, serif;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-subtitle {
+      font-family: 'Segoe UI', sans-serif;
+      font-style: italic;
+      color: #666;
+      margin-top: 0.1rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: #660033;
+    }
+
+    .nav-btn {
+      display: inline-block;
+      color: white;
+      background: #660033;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      margin-left: 0.5rem;
+    }
+
+    .nav-btn:hover {
+      background: #a63b72;
+    }
+
+    /* Main content styles */
+    .journalism-hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #660033 0%, #330A1F 100%);
+      color: white;
+      margin-bottom: 4rem;
+      border-radius: 20px;
+    }
+
+    .journalism-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .journalism-hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    /* Section headings matching your style */
+    .section-title {
+      font-family: 'Lobster Two', cursive;
+      font-size: 2.5rem;
+      color: #270846;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    /* Gallery grid system */
+    .gallery-section {
+      margin-bottom: 5rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Gallery item cards */
+    .gallery-item {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 4px solid #660033;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(102, 0, 51, 0.15);
+    }
+
+    /* Image container */
+    .gallery-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+    }
+
+    /* Caption area */
+    .gallery-caption {
+      padding: 1.5rem;
+    }
+
+    .gallery-caption h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: #660033;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .gallery-caption .publication {
+      font-family: 'Lora', serif;
+      font-size: 0.9rem;
+      color: #a63b72;
+      font-style: italic;
+      margin-bottom: 0.8rem;
+    }
+
+    .gallery-caption .description {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-caption .date {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+
+    .read-more-btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: #660033;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .read-more-btn:hover {
+      background: #a63b72;
+    }
+
+    /* Bio section matching your about style */
+    .bio-section {
+      max-width: 1100px;
+      margin: 4rem auto;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      padding: 0 2rem;
+    }
+
+    .bio-photo {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .bio-text {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+      padding: 2rem;
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      flex: 1;
+    }
+
+    .bio-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #660033;
+      margin-bottom: 1rem;
+    }
+
+    /* Contact section matching your style */
+    .contact-section {
+      max-width: 600px;
+      margin: 4rem auto 0 auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(102,51,153,0.07);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-family: 'Lobster Two', cursive;
+      color: #660033;
+      margin-bottom: 1rem;
+      font-size: 2.2rem;
+    }
+
+    .contact-section p {
+      color: #444;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: #660033;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background: #a63b72;
+    }
+
+    /* Photojournalism Section Styles */
+    .photo-series {
+      margin-bottom: 4rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 16px;
+      padding: 2rem;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .series-header {
+      margin-bottom: 2rem;
+      text-align: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .series-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #660033;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .series-description {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .series-info {
+      font-size: 0.9rem;
+      color: #a63b72;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    /* Photo grid for individual photos */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .photo-item {
+      background: #fafafa;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .photo-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(102, 0, 51, 0.15);
+    }
+
+    .photo-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .photo-caption {
+      padding: 1.5rem;
+    }
+
+    .caption-text {
+      font-family: 'Lora', serif;
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+
+    .photo-credit {
+      font-size: 0.8rem;
+      color: #660033;
+      font-weight: bold;
+      text-align: right;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    /* Editorial Statement Section */
+    .editorial-statement {
+      max-width: 800px;
+      margin: 4rem auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .statement-content p {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .statement-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Press Kit Section */
+    .press-kit-section {
+      background: linear-gradient(135deg, #660033 0%, #330A1F 100%);
+      color: white;
+      padding: 4rem 2rem;
+      border-radius: 20px;
+      margin: 4rem auto;
+      max-width: 1000px;
+    }
+
+    .press-kit-section .section-title {
+      color: white;
+      margin-bottom: 2rem;
+    }
+
+    .press-kit-content {
+      text-align: center;
+    }
+
+    .press-kit-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .press-kit-info p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .press-kit-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .kit-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .kit-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+
+    .kit-item p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 0;
+    }
+
+    .download-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .download-btn {
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .download-btn.primary {
+      background: white;
+      color: #660033;
+    }
+
+    .download-btn.primary:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+    }
+
+    .download-btn.secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .download-btn.secondary:hover {
+      background: white;
+      color: #660033;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      margin: 4rem auto;
+      max-width: 1000px;
+      padding: 0 2rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-left: 4px solid #660033;
+    }
+
+    .skill-category h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: #660033;
+      margin-bottom: 1rem;
+    }
+
+    .skill-category ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skill-category li {
+      font-family: 'Lora', serif;
+      padding: 0.4rem 0;
+      color: #444;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .skill-category li:last-child {
+      border-bottom: none;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bio-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .journalism-hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .journalism-hero p {
+        font-size: 1rem;
+      }
+
+      .photo-series {
+        padding: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .series-title {
+        font-size: 1.5rem;
+      }
+
+      .series-description {
+        font-size: 1rem;
+      }
+
+      .editorial-statement {
+        padding: 2rem;
+      }
+
+      .statement-content p {
+        font-size: 1rem;
+      }
+
+      .download-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .download-btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-title">
+      <h1>Lora Nabwala</h1>
+      <h4 class="header-subtitle">Digital storyteller</h4>
+    </div>
+    <nav>
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="index.html#about" class="nav-btn">About</a>
+      <a href="index.html#projects" class="nav-btn">Projects</a>
+      <a href="index.html#contact" class="nav-btn">Contact</a>
+      <a href="stories.html" class="nav-btn">Stories</a>
+      <a href="#" class="nav-btn" style="background: #a63b72;">For Editors</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="journalism-hero">
+    <h1>For Editors</h1>
+    <p>Showcasing my journalism work, published articles and editorial experience</p>
+  </section>
+
+  <!-- Bio Section -->
+  <section class="bio-section">
+    <img src="images/lora.jpg" alt="Lora Nabwala - Journalist" class="bio-photo"/>
+    <div class="bio-text">
+      <h3>Journalism Background</h3>
+      <p>With a passion for storytelling that trancsends various media, I bring a unique perspective to journalism through my experience in digital media and visual narratives. 
+        My work focuses on human interst stories, especially culturally significant ones, combining compelling written content with strong visual elements.</p>
+      <p>I have experience in interviews, feature writing and research and am always looking for new editorial opportunities to tell meaningful stories.</p>
+    </div>
+  </section>
+
+  <!-- Published Work Gallery -->
+  <section class="gallery-section">
+    <h2 class="section-title">Published Work</h2>
+    <div class="gallery-grid">
+      
+      <!-- Article 1 -->
+      <div class="gallery-item">
+        <div class="gallery-caption">
+          <h3>The cultural disconnect faced by Kenyan youth and diaspora.</h3>
+          <p class="publication">Published in Medium</p>
+          <p class="description">Every day the Kenyan youth become more and more united under the label 'tribeless' but 
+            what does it mean for their connection to their roots?</p>
+          <p class="date">August 2025</p>
+          <a href="https://medium.com/@loranabwala/cultural-disconnect-in-the-kenyan-youth-and-diaspora-afa6d973f37a" class="read-more-btn">Read Article</a>
+        </div>
+      </div>
+
+      <!-- Article 2 -->
+      <div class="gallery-item">
+        <div class="gallery-caption">
+          <h3>Another Article Title</h3>
+          <p class="publication">Published in [Publication Name]</p>
+          <p class="description">Another compelling piece showcasing your journalism skills, interview techniques, or investigative abilities.</p>
+          <p class="date">December 2023</p>
+          <a href="#" class="read-more-btn">Read Article</a>
+        </div>
+      </div>
+
+      <!-- Article 3 -->
+      <div class="gallery-item">
+        <div class="gallery-caption">
+          <h3>Feature Story Title</h3>
+          <p class="publication">Published in [Publication Name]</p>
+          <p class="description">A longer feature piece that demonstrates your ability to dive deep into complex topics and tell comprehensive stories.</p>
+          <p class="date">November 2023</p>
+          <a href="#" class="read-more-btn">Read Article</a>
+        </div>
+      </div>
+
+      <!-- Add more articles as needed -->
+    </div>
+  </section>
+
+  <!-- Photojournalism Section -->
+  <section class="gallery-section">
+    <h2 class="section-title">Photojournalism</h2>
+    
+    <!-- Photo Series 1 -->
+    <div class="photo-series">
+      <div class="series-header">
+        <h3 class="series-title">Series Title: Mfangano </h3>
+        <p class="series-description">An island flush with culture and beauty, through my lens as a local tourist. This series includes the moving island, some sacred rock art among others.</p>
+        <p class="series-info">August 2025 | Photography by Lora Nabwala</p>
+      </div>
+      
+      <div class="photo-grid">
+        <div class="photo-item">
+          <img src="images/boats.jpg" alt="Photojournalism Image 1" class="photo-image">
+          <div class="photo-caption">
+            <p class="caption-text">Fishing is a major economic activity on Mfangano island, and the boats are labelled with the owners surnames and phone numbers.</p>
+            <p class="photo-credit">Photo: Lora Nabwala</p>
+          </div>
+        </div>
+
+        <div class="photo-item">
+          <img src="images/cave.jpg" alt="Photojournalism Image 2" class="photo-image">
+          <div class="photo-caption">
+            <p class="caption-text">These are the sacred Mawanga caves where the raimaker clan, the Wasamo, lived.</p>
+            <p class="photo-credit">Photo: Lora Nabwala</p>
+          </div>
+        </div>
+
+        <div class="photo-item">
+          <img src="images/fingerprints.jpg" alt="Photojournalism Image 3" class="photo-image">
+          <div class="photo-caption">
+            <p class="caption-text">The impressions on the cave walls come from where the women of the clan taught their younger girls how to plaster walls.</p>
+            <p class="photo-credit">Photo: Lora Nabwala</p>
+          </div>
+        </div>
+
+        <div class="photo-item">
+          <img src="images/island.jpg" alt="Photojournalism Image 4" class="photo-image">
+          <div class="photo-caption">
+            <p class="caption-text">The "moving island" that allegedly followed the Suba people after their migration from Uganda to Kenya.</p>
+            <p class="photo-credit">Photo: Lora Nabwala</p>
+          </div>
+        </div>
+
+        <div class="photo-item">
+          <img src="images/spirals.jpeg" alt="Photojournalism Image 5" class="photo-image">
+          <div class="photo-caption">
+            <p class="caption-text">This art is a remnant of sacred rituals by the Wasamo used to summon rainmaking spirits by the women of the clan.</p>
+            <p class="photo-credit">Photo: Lora Nabwala</p>
+          </div>
+        </div>
+
+        <div class="photo-item">
+          <img src="images/bird.jpeg" alt="Photojournalism Image 6" class="photo-image">
+          <div class="photo-caption">
+            <p class="caption-text">This Great Egret (Ardea alba) is indigenous to the island.</p>
+            <p class="photo-credit">Photo: Lora Nabwala</p>
+          </div>
+
+      </div>
+    </div>
+
+    <!-- Photo Series 2 -->
+    <div class="photo-series">
+      <div class="series-header">
+        <h3 class="series-title">Series Title: [Another Photo Series]</h3>
+        <p class="series-description">Description of another photojournalism project, perhaps covering a different topic or approach to visual storytelling.</p>
+        <p class="series-info">Published in [Publication] | [Date] | Photography by Lora Nabwala</p>
+      </div>
+      
+      <div class="photo-grid">
+        <div class="photo-item">
+          <img src="https://i.pinimg.com/736x/c5/be/d1/c5bed17a2c0f8e6b4d3a1f9c7e5a3d0b.jpg" alt="Series 2 Image 1" class="photo-image">
+          <div class="photo-caption">
+            <p class="caption-text">Opening image for the second series with detailed contextual information.</p>
+            <p class="photo-credit">Photo: Lora Nabwala</p>
+          </div>
+        </div>
+
+        <div class="photo-item">
+          <img src="https://i.pinimg.com/736x/d6/cf/e2/d6cfe28b3d1a9f7c5e4b2a0f8d6c4e1a.jpg" alt="Series 2 Image 2" class="photo-image">
+          <div class="photo-caption">
+            <p class="caption-text">Follow-up image that continues the narrative thread of this photojournalism piece.</p>
+            <p class="photo-credit">Photo: Lora Nabwala</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Writing Samples Section -->
+  <section class="gallery-section">
+    <h2 class="section-title">Writing Samples</h2>
+    <div class="gallery-grid">
+      
+      <div class="gallery-item">
+        <div class="gallery-caption">
+          <h3>Sample Article Title</h3>
+          <p class="publication">Unpublished/Portfolio Piece</p>
+          <p class="description">A strong writing sample that demonstrates your style, voice, and ability to craft engaging content on [topic].</p>
+          <p class="date">2024</p>
+          <a href="#" class="read-more-btn">Read Sample</a>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-caption">
+          <h3>Editorial Piece Title</h3>
+          <p class="publication">Opinion/Editorial Sample</p>
+          <p class="description">An editorial or opinion piece showcasing your analytical thinking and ability to present persuasive arguments.</p>
+          <p class="date">2024</p>
+          <a href="#" class="read-more-btn">Read Sample</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Statement Section -->
+  <section class="editorial-statement">
+    <h2 class="section-title">Editorial Approach</h2>
+    <div class="statement-content">
+      <p>I believe stories should center people and culture, not just the events themselves.</p>
+      
+      <p>While my first love is writing, I carry my camera to every story, capturing moments that give words a visual anchor. My focus is culture and human-interest stories that reveal the resilience and depth of everyday people.</p>      
+    
+      <p>What sets me apart is how I merge photography with narrative and approach stories with a fresh, generational perspective.</p>
+    </div>
+  </section>
+
+  <!-- Press Kit Section -->
+  <section class="press-kit-section">
+    <h2 class="section-title">Press Kit</h2>
+    <div class="press-kit-content">
+      <div class="press-kit-info">
+        <h3>Professional Resources</h3>
+        <p>Download my complete press kit including high-resolution headshots, journalism resume, published clips, and rate information.</p>
+        
+        <div class="press-kit-items">
+          <div class="kit-item">
+            <h4>📄 Journalism Resume</h4>
+            <p>Complete CV with education, experience, and published work</p>
+          </div>
+          <div class="kit-item">
+            <h4>📸 Professional Headshots</h4>
+            <p>High-resolution images for publication use</p>
+          </div>
+          <div class="kit-item">
+            <h4>📝 Writing Samples</h4>
+            <p>Curated selection of published articles and features</p>
+          </div>
+          <div class="kit-item">
+            <h4>💰 Rate Information</h4>
+            <p>Pricing for freelance assignments and services</p>
+          </div>
+        </div>
+        
+        <div class="download-buttons">
+          <a href="#" class="download-btn primary">Download Full Press Kit (PDF)</a>
+          <a href="#" class="download-btn secondary">Request Custom Materials</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills-section">
+    <h2 class="section-title">Core Competencies</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h4>Photography</h4>
+        <ul>
+          <li>Portrait Photography</li>
+          <li>Event Documentation</li>
+          <li>Product Photography</li>
+          <li>Photo Editing</li>
+        </ul>
+      </div>
+      
+      <div class="skill-category">
+        <h4>Writing</h4>
+        <ul>
+          <li>Feature Articles</li>
+          <li>Interview Pieces</li>
+          <li>News Reporting</li>
+          <li>Editorial Writing</li>
+        </ul>
+      </div>
+      
+      <div class="skill-category">
+        <h4>Technical</h4>
+        <ul>
+          <li>Adobe Creative Suite</li>
+          <li>Content Management</li>
+          <li>Social Media Strategy</li>
+          <li>SEO Writing</li>
+        </ul>
+      </div>
+      
+     
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h2>Let's Work Together</h2>
+    <p>Looking for a creative storyteller with both visual and written expertise? I'd love to discuss how I can contribute to your publication.</p>
+    <a href="index.html#contact" class="contact-btn">Get in Touch</a>
+  </section>
+</body>
+</html>
